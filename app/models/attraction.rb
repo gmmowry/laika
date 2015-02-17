@@ -1,6 +1,7 @@
 class Attraction
   include Mongoid::Document
   include Mongoid::Timestamps
+  include LongLat
 
   field :name, type: String
   field :rating, type: Integer
@@ -17,14 +18,6 @@ class Attraction
 
   validates_presence_of :name, :longlat, :yelp_id
   validates_uniqueness_of :yelp_id
-
-  def longitude
-    self.longlat['coordinates'][0]
-  end
-
-  def latitude
-    self.longlat['coordinates'][1]
-  end
 
   def self.search_within(geometry, interests = [])
     Attraction.where("longlat.coordinates" => {
