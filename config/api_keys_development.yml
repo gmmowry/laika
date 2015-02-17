@@ -1,15 +1,6 @@
-test:
-  yelp_consumer_key:    <%= ENV["YELP_CONSUMER_KEY"] %>
-  yelp_consumer_secret: <%= ENV["YELP_CONSUMER_SECRET"] %>
-  yelp_token:           <%= ENV["YELP_TOKEN"] %>
-  yelp_token_secret:    <%= ENV["YELP_TOKEN_SECRET"] %>
-  google_key:           <%= ENV["GOOGLE_KEY"] %>
-
-# Do not keep production secrets in the repository,
-# instead read values from the environment.
-production:
-  yelp_consumer_key:    <%= ENV["YELP_CONSUMER_KEY"] %>
-  yelp_consumer_secret: <%= ENV["YELP_CONSUMER_SECRET"] %>
-  yelp_token:           <%= ENV["YELP_TOKEN"] %>
-  yelp_token_secret:    <%= ENV["YELP_TOKEN_SECRET"] %>
-  google_key:           <%= ENV["GOOGLE_KEY"] %>
+development:
+  yelp_consumer_key:    'iTwjw0DOU1LbsxYVY-xBMQ'
+  yelp_consumer_secret: 'PzGWGnWa0gOv3YSSLQeeE8yv2F0'
+  yelp_token:           'JMwkWcdZ-fviGUCQZKfmwGovIm55sUtW'
+  yelp_token_secret:    '9wot6yuKA9jfYGKdR3L-3cDpCO0'
+  google_key:           'AIzaSyCvkcahP3aIjobWeYXxanodRw9KlSXfUxg'
