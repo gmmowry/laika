@@ -28,6 +28,9 @@ var Route = function(start, end, waypts){
   this.waypts = waypts || []
 
   this.calculateRoute();
+
+  // this.start = new google.maps.LatLng(33.5206608,-86.80249), // birmingham
+  // this.end = new google.maps.LatLng(30.421309,-87.2169149), // pensacola
 };
 
 // Route.prototype.getWaypoints = function(){
