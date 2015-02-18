@@ -16,7 +16,11 @@ Rails.application.routes.draw do
   get 'maps/start_trip' => 'maps#start_trip'
   post 'maps/display' => 'maps#display'
   post 'maps/search' => 'maps#search'
+
   resources :maps, only: [:index]
+
+  resources :trips, only: [:create]
+
 
   root 'maps#start_trip'
 

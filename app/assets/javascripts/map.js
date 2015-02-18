@@ -13,7 +13,8 @@ function initialize() {
 
   directionsDisplay.setMap(mapObject.map);
 
-  route = new Route(START, END, WAYPOINTS);
+  // route = new Route(START, END, PITSTOP);
+  route = new Route(START, END, PITSTOP); // HARD CODED atm
 }
 
 var MapObject = function(){
@@ -28,19 +29,48 @@ var MapObject = function(){
 
 //-------Route----------
 
-var Route = function(start, end, waypts){
+var Route = function(start, end, pitstop, waypts){
   this.start = start; // birmingham
   this.end = end; // pensacola
+  this.pitstop = pitstop;
   this.waypts = waypts || [];
 
   this.calculateRoute();
 }
 
 Route.prototype.calculateRoute = function(){
+  var googleWaypts = []
+
+  if (this.pitstop) {
+    googleWaypts.push({
+        location: this.pitstop,
+        stopover: true,
+    });
+  }
+
+  // this.waypts = [{
+  //   type: 'Point',
+  //   coordinates: [-84.2568559, 30.4671395]
+  // }]
+
+  // if (this.waypts) {
+  //   this.waypts.forEach(function(waypt) {
+  //     var lng = waypt.coordinates[0];
+  //     var lat = waypt.coordinates[1];
+  //     var coords = new google.maps.LatLng(lat, lng);
+  //     googleWaypts.push({
+  //       location: coords,
+  //       stopover: true,
+  //     })
+  //   });
+  // }
+
+  console.log(googleWaypts);
+
   var request = {
     origin: this.start,
     destination: this.end,
-    waypoints: this.pitstop,
+    waypoints: googleWaypts,
     optimizeWaypoints: true,
     travelMode: google.maps.TravelMode.DRIVING
   };
