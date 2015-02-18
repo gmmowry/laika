@@ -8,6 +8,7 @@ class Trip
   field :map_waypoints
 
   has_many :waypoints, class_name: 'Attraction'
+  belongs_to :user
 
   validates_presence_of :origin, :destination
 end
