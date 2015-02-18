@@ -16,13 +16,14 @@ class UsersController < ApplicationController
   end
 
   def profile
-    @interests = Category.distinct(:name)
+    @interests = Category.distinct(:subcategory_name)
     @user_interests = current_user.interests.distinct(:name)
     render 'edit'
   end
 
   def update
-    @interests = Category.distinct(:name)
+    @interest_category = Category.distinct(:name)
+    @interests = Category.distinct(:subcategory_name)
     @user_interests = current_user.interests.distinct(:name)
 
     current_user.update_attributes(password: user_params[:password],
