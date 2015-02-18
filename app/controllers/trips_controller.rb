@@ -14,7 +14,7 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.permit(:origin, :destination, :pitstop)
+    params.require(:user).permit(:origin, :destination, :pitstop)
   end
 
 end
