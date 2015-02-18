@@ -2,8 +2,8 @@
 
 <%= form_tag users_profile_path, method: :post do |f| %>
 
-  <div class='success'><%= "Profile updated." if success? %></div>
-
+  <div class='success'><%= "Profile updated." if success? %></div><br />
+  <p> Check all the areas you'd like to see on your roadtrip</p>
   <%= render partial: 'interests' %>
 
   <p>Change my password</p>
@@ -15,6 +15,9 @@
       <%= "Passwords do not match." if errors.include? :password_confirmation %>
   </div>
 
-  <%= submit_tag "Update" %>
+  <%= submit_tag "Update" %><br />
+  <br>
+
+  <%= render partial: 'user_trips' %>
 
 <% end %>
