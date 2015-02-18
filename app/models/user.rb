@@ -10,7 +10,7 @@ class User
   has_secure_password
 
   has_many :trips
-  has_many :interests, class_name: "Category"
+  has_many :interests, class_name: "Category", foreign_key: :subcategory_name
 
   validates_presence_of :name, :email
   validates_uniqueness_of :email
